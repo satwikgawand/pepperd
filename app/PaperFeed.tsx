@@ -12,31 +12,31 @@ const DIFFICULTY_STYLES: Record<string, string> = {
 
 type PaperFeedProps = {
   papers: PaperMeta[]
-  allTags: string[]
+  allCategories: string[]
 }
 
-export default function PaperFeed({ papers, allTags }: PaperFeedProps) {
-  const [activeTag, setActiveTag] = useState<string>("all")
+export default function PaperFeed({ papers, allCategories }: PaperFeedProps) {
+  const [activeCategory, setActiveCategory] = useState<string>("all")
 
-  const filtered = activeTag === "all"
+  const filtered = activeCategory === "all"
     ? papers
-    : papers.filter(p => p.tags.includes(activeTag))
+    : papers.filter(p => p.category === activeCategory)
 
   return (
     <div className="space-y-8">
-      {/* Tag filter */}
+      {/* Category filter */}
       <div className="flex flex-wrap gap-2">
-        {["all", ...allTags].map(tag => (
+        {["all", ...allCategories].map(cat => (
           <button
-            key={tag}
-            onClick={() => setActiveTag(tag)}
-            className={`px-3 py-1 text-xs font-mono rounded-full border transition-colors ${
-              activeTag === tag
+            key={cat}
+            onClick={() => setActiveCategory(cat)}
+            className={`px-3 py-1 text-xs font-mono rounded-full border transition-all duration-150 hover:scale-[1.04] active:scale-95 ${
+              activeCategory === cat
                 ? "bg-stone-800 text-white border-stone-800"
                 : "bg-white text-stone-600 border-stone-300 hover:border-stone-500 hover:bg-stone-50"
             }`}
           >
-            {tag}
+            {cat}
           </button>
         ))}
       </div>
@@ -45,7 +45,7 @@ export default function PaperFeed({ papers, allTags }: PaperFeedProps) {
       <div className="space-y-4">
         {filtered.map(paper => (
           <Link key={paper.slug} href={`/paper/${paper.slug}`} className="block group">
-            <article className="bg-white border border-stone-200 rounded p-6 hover:rotate-1 transition-transform duration-200 hover:shadow-md">
+            <article className="bg-white border border-stone-200 rounded p-6 hover:rotate-1 transition-all duration-200 hover:shadow-md">
               <div className="flex items-start justify-between gap-4">
                 <div className="space-y-1 flex-1 min-w-0">
                   <h2 className="font-serif text-xl text-stone-900 group-hover:text-blue-800 transition-colors leading-snug">
@@ -73,14 +73,15 @@ export default function PaperFeed({ papers, allTags }: PaperFeedProps) {
                   {paper.tags.map(tag => (
                     <span
                       key={tag}
-                      className="px-2 py-0.5 text-xs font-mono bg-stone-100 text-stone-500 rounded-full"
+                      className="px-2 py-0.5 text-xs font-mono bg-stone-100 text-stone-500 rounded-full border border-stone-200"
                     >
                       {tag}
                     </span>
                   ))}
                 </div>
-                <span className="font-mono text-xs text-blue-600 group-hover:text-blue-800 transition-colors whitespace-nowrap ml-4">
-                  read the breakdown →
+                <span className="font-mono text-xs text-blue-600 group-hover:text-blue-800 transition-colors whitespace-nowrap ml-4 inline-flex items-center gap-1">
+                  read the breakdown
+                  <span className="transition-transform duration-150 group-hover:translate-x-1">→</span>
                 </span>
               </div>
             </article>

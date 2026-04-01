@@ -16,3 +16,9 @@ export function getAllTags(): string[] {
   papers.forEach(p => p.tags.forEach(t => tagSet.add(t)))
   return Array.from(tagSet).sort()
 }
+
+export function getAllCategories(): string[] {
+  const catSet = new Set<string>()
+  papers.forEach(p => catSet.add(p.category))
+  return Array.from(catSet).sort()
+}

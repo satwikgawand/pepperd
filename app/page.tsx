@@ -1,9 +1,9 @@
-import { getAllPapers, getAllTags } from "@/lib/papers"
+import { getAllPapers, getAllCategories } from "@/lib/papers"
 import PaperFeed from "./PaperFeed"
 
 export default function Home() {
   const papers = getAllPapers()
-  const allTags = getAllTags()
+  const allCategories = getAllCategories()
 
   return (
     <div className="max-w-3xl mx-auto px-6 py-16">
@@ -21,18 +21,18 @@ export default function Home() {
         <p className="font-mono text-xs text-stone-400">
           {papers.length} paper{papers.length !== 1 ? "s" : ""} and counting
           <span className="ml-3 text-stone-300">·</span>
-          <span className="ml-3">hand-curated. no AI slop.</span>
+          <span className="ml-3">AI-assisted. human-curated.</span>
         </p>
       </header>
 
       {/* Feed */}
       <main>
-        <PaperFeed papers={papers} allTags={allTags} />
+        <PaperFeed papers={papers} allCategories={allCategories} />
       </main>
 
       {/* Footer */}
       <footer className="mt-16 pt-8 border-t border-stone-200 font-mono text-xs text-stone-400 text-center space-y-1">
-        <p>pepperd — a hand-crafted academic paper breakdown site</p>
+        <p>pepperd — an AI-assisted paper breakdown site</p>
         <p className="text-stone-300">not affiliated with any institution. purely vibes-driven research dissemination.</p>
       </footer>
     </div>
