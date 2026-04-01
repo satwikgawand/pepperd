@@ -1,0 +1,16 @@
+## tldr
+
+someone looked at RNNs, said "what if we just didn't", and accidentally invented
+the architecture that runs everything now. attention mechanisms replace recurrence
+entirely — no sequential processing, no vanishing gradients, no waiting for token
+N-1 before you can think about token N. you just... look at everything at once.
+it works embarrassingly well.
+
+## key findings
+
+- self-attention computes relationships between all positions simultaneously — no sequential dependency, no recurrence
+- multi-head attention lets the model attend to different representation subspaces at once — like having multiple perspectives on the same sentence
+- positional encodings inject sequence order since attention itself is order-agnostic (it sees a set, not a sequence)
+- the transformer outperformed RNN-based seq2seq models on English-to-German and English-to-French translation
+- training was significantly faster than recurrent models because everything can be parallelised
+- the architecture generalised beyond translation — this is now the backbone of basically everything in NLP

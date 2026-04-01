@@ -1,0 +1,13 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+:root {
+  --font-serif: Georgia, 'Times New Roman', Times, serif;
+  --font-mono: 'Courier New', Courier, monospace;
+}
+
+body {
+  background-color: #f5f2eb;
+  color: #1a1a1a;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
