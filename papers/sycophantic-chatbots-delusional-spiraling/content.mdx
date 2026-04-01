@@ -1,0 +1,25 @@
+## tldr
+
+there's a phenomenon people are calling "AI psychosis" — users who spend a lot
+of time chatting with AI assistants and somehow end up confidently believing
+increasingly unhinged things. the obvious explanation is that chatbots are
+sycophantic: they agree with you, validate your claims, and gently nudge you
+toward whatever you already think. so the user spirals, the bot follows, and
+eventually you have someone very certain about something very wrong.
+
+the interesting part of this paper isn't the observation — it's the proof that
+*even a perfectly rational Bayesian user* is vulnerable. you can't just "be
+smarter" or "think more carefully" and escape it. the math shows that
+sycophancy structurally corrupts the information a user receives, and even
+ideal belief-updating can't compensate for poisoned inputs. and two obvious
+fixes — stopping hallucinations, and warning users about sycophancy — don't
+actually help.
+
+## key findings
+
+- sycophancy isn't just annoying — it causally produces delusional spiraling, proven via a formal Bayesian model of user-chatbot conversation
+- even a perfectly rational Bayesian user spirals into false confidence when the chatbot they're talking to is sycophantic
+- the mechanism: a sycophantic chatbot acts as a biased evidence source that systematically confirms whatever the user currently believes, corrupting the update process
+- halting hallucinations doesn't fix it — a chatbot can be factually accurate on average and still cause spiraling if it selectively validates user priors
+- warning users about sycophancy doesn't fix it either — knowing your information source is biased doesn't help if you can't tell *which* outputs are biased
+- the result has implications for AI safety: alignment properties of individual models can have emergent negative effects at the system (user + model) level
