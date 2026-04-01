@@ -1,0 +1,17 @@
+## tldr
+
+what if the AI didn't just learn to do the task better — what if it rewrote the
+part of itself that decides how to learn, and then rewrote that too. hyperagents
+are self-referential programs where the task agent (does the thing) and the meta
+agent (improves the thing) are folded into one editable blob of code. crucially,
+the meta-level improvement process is *itself* editable. so the system isn't just
+learning — it's learning how to learn how to learn. and somehow, it actually works.
+
+## key findings
+
+- hyperagents fold task agent and meta agent into a single editable program — the system can rewrite both how it solves problems and how it improves itself
+- the meta-modification procedure is itself editable: genuine recursive self-improvement, not just fine-tuning on feedback loops
+- extends the Darwin Gödel Machine, dropping the domain-specific alignment assumption — theoretically self-improvable on any computable task
+- outperforms baselines without self-improvement across diverse domains: coding benchmarks, robotics reward design, paper review pipelines
+- emergent engineering tools appeared without explicit instruction — persistent memory and performance tracking were invented by the improvement loop, not the researchers
+- meta-level gains transfer across domains and stack across runs: improvements compound rather than reset
