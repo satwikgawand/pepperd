@@ -7,6 +7,7 @@ export const meta: PaperMeta = {
   venue: "NeurIPS 2017",
   year: 2017,
   arxiv: "https://arxiv.org/abs/1706.03762",
+  category: "CS",
   tags: ["transformers", "attention", "ML", "NLP"],
   difficulty: "main character",
   readTime: "~5 min",

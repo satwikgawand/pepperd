@@ -7,6 +7,7 @@ export type PaperMeta = {
   venue: string
   year: number
   arxiv: string
+  category: string
   tags: string[]
   difficulty: Difficulty
   readTime: string

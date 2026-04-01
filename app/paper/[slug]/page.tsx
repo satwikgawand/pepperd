@@ -58,13 +58,14 @@ function PaperHeader({ meta }: { meta: PaperMeta }) {
     <header className="space-y-4 border-b border-stone-300 pb-8 mb-10">
       <Link
         href="/"
-        className="font-mono text-xs text-stone-400 hover:text-stone-600 transition-colors inline-flex items-center gap-1"
+        className="group font-mono text-xs text-stone-400 hover:text-stone-600 transition-colors inline-flex items-center gap-1"
       >
-        ← back to pepperd
+        <span className="transition-transform duration-150 group-hover:-translate-x-1">←</span>
+        back to pepperd
       </Link>
 
       <div className="space-y-2">
-        <div className="font-mono text-xs text-stone-400 uppercase tracking-widest">
+        <div className="font-mono text-xs text-stone-400 tracking-widest">
           {meta.venue}
         </div>
         <h1 className="font-serif text-4xl text-stone-900 leading-tight">
@@ -95,7 +96,7 @@ function PaperHeader({ meta }: { meta: PaperMeta }) {
         {meta.tags.map(tag => (
           <span
             key={tag}
-            className="px-2 py-0.5 text-xs font-mono bg-stone-100 text-stone-500 rounded-full"
+            className="px-2 py-0.5 text-xs font-mono bg-white border border-stone-300 text-stone-600 rounded-full transition-colors hover:border-stone-500"
           >
             {tag}
           </span>
