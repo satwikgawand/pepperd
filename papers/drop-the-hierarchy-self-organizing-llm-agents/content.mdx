@@ -1,0 +1,29 @@
+## tldr
+
+the obvious question when building multi-agent AI systems is: how do you
+organize them? you could have one boss agent that delegates to workers
+(centralized), let every agent do whatever they want (fully autonomous), or
+something in between. the obvious answer is that you should *design* the
+structure carefully. this paper says: actually, no.
+
+after 25,000 tasks, 8 models, 4–256 agents, and 8 coordination protocols,
+the winner is what the paper calls "Sequential" — a hybrid where the *order*
+agents speak in is fixed, but which *role* each agent plays is chosen by the
+agents themselves. this beats full central control by 14% and fully autonomous
+protocols by 44%. the authors call this the **endogeneity paradox**: the
+optimal protocol is neither designed nor free — it's constrained freedom.
+
+what makes this more interesting than a benchmark win is the emergent behavior.
+from just 8 agents, the system invented 5,006 unique roles across tasks,
+including agents that voluntarily chose not to contribute when they had nothing
+useful to add. spontaneous hierarchy appeared without anyone programming it in.
+
+## key findings
+
+- Sequential protocol (fixed order, self-selected roles) outperforms centralized coordination by +14% and fully autonomous by +44% (Cohen's d=1.86, p<0.0001)
+- the "endogeneity paradox": optimal self-organization requires a scaffold — total freedom performs worse than constrained freedom
+- capability threshold matters: below it, rigid structure beats autonomy; above it, the relationship reverses — you can't just pick a protocol, you have to match it to your model
+- scales sub-linearly to 256 agents — more agents keep helping, but with diminishing returns rather than chaos
+- 5,006 unique roles emerged spontaneously from 8 agents across tasks — no predefined role taxonomy needed
+- agents exhibited voluntary self-abstention: choosing silence when they had nothing to add, without being told to
+- spontaneous hierarchy formation: structure emerged from interaction without being designed in
